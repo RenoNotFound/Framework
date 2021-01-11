@@ -1,0 +1,8 @@
+{
+  "database_connection": {
+    "user": "johndoe",
+    "password": "1234",
+    "host": "localhost",
+    "database_name": "my_database"
+  }
+}
