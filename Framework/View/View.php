@@ -4,7 +4,7 @@
 namespace Framework\View;
 
 
-class View
+class View implements iTemplate
 {
     private string $directory;
 
