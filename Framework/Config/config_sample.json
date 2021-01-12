@@ -4,9 +4,5 @@
     "password": "password",
     "host": "host",
     "database_name": "my_database"
-  },
-  "template_engine": {
-    "templates": "directory_to_templates"
   }
-
 }
