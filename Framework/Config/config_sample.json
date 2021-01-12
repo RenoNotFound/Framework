@@ -1,8 +1,12 @@
 {
   "database_connection": {
-    "user": "johndoe",
-    "password": "1234",
-    "host": "localhost",
+    "user": "user",
+    "password": "password",
+    "host": "host",
     "database_name": "my_database"
+  },
+  "template_engine": {
+    "templates": "directory_to_templates"
   }
+
 }
