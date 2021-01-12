@@ -17,7 +17,7 @@ class View
         $this->directory = $directory;
     }
 
-    public function run(string $templateName, array $templateVariables) : string {
+    public function render(string $templateName, array $templateVariables) : string {
         $file = $this->directory . $templateName;
         if (!file_exists($file)) {
             return "Error loading template file ($file).";
