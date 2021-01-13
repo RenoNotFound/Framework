@@ -1,15 +1,14 @@
 Options -Indexes
 
-<Files "composer.json">
-	Order Allow,Deny
-	Deny from All
-</Files>
-
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.php$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.php [L]
+    <Files "composer.json">
+        Order Allow,Deny
+        Deny from All
+    </Files>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
 </IfModule>

@@ -1,0 +1,8 @@
+{
+  "database_connection": {
+    "user": "reno",
+    "password": "qwer",
+    "host": "localhost",
+    "database_name": "prioris"
+  }
+}

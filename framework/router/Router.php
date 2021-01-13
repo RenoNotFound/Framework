@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Framework\Router;
+namespace Framework\router;
 
 
-use Framework\SuperGlobal\Server;
-use Framework\View\View;
+use Framework\superglobal\Server;
+use Framework\view\View;
 
 class Router
 {
@@ -24,16 +24,19 @@ class Router
 
     public function get($path, $callback)
     {
+        session_start();
         $this->routes["get"][$path] = $callback;
     }
 
     public function post($path, $callback)
     {
+        session_start();
         $this->routes["post"][$path] = $callback;
     }
 
-    public function resolve()
+    public function resolve() : string
     {
+        session_start();
         $path = Server::getPath();
         $method = Server::getMethod();
         $callback = $this->routes[$method][$path] ?? false;

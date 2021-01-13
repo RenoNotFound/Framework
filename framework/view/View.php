@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Framework\View;
+namespace Framework\view;
 
 
 class View implements iTemplate
@@ -17,16 +17,16 @@ class View implements iTemplate
         $this->rootDirectory = $directory;
     }
 
-    public function render(string $templateName, array $templateVariables = []) : string
+    public function render(string $tmplName, array $tmplVariables = []) : string
     {
-        $file = $this->rootDirectory . "/Templates/$templateName.tmpl";
+        $file = $this->rootDirectory . "/templates/$tmplName.tmpl";
         if (!file_exists($file)) {
             return "Error loading template file ($file).";
         }
         $output = file_get_contents($file);
 
-        if (!empty($templateVariables)) {
-            foreach ($templateVariables as $key => $value) {
+        if (!empty($tmplVariables)) {
+            foreach ($tmplVariables as $key => $value) {
                 $tagToReplace = "{{ $key }}";
                 $output = str_replace($tagToReplace, $value, $output);
             }

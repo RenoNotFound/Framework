@@ -4,21 +4,21 @@
 namespace App;
 
 
-use Framework\Router\Router;
+use Framework\router\Router;
 
 class Application
 {
-    public static string $ROOT_DIR;
     private Router $router;
+    public static Application $app;
 
     /**
-     * Application constructor.
+     * application constructor.
      * @param string $rootPath
      */
     public function __construct(string $rootPath)
     {
-        self::$ROOT_DIR = $rootPath;
-        $this->router = new Router();
+        self::$app = $this;
+        $this->router = new Router($rootPath);
     }
 
     public function run()
@@ -33,6 +33,8 @@ class Application
     {
         return $this->router;
     }
+
+
 
 
 

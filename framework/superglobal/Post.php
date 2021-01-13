@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Framework\SuperGlobal;
+namespace Framework\superglobal;
 
 
 class Post
