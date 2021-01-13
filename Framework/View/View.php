@@ -6,7 +6,7 @@ namespace Framework\View;
 
 class View implements iTemplate
 {
-    private string $directory;
+    private string $rootDirectory;
 
     /**
      * Templeton constructor.
@@ -14,19 +14,22 @@ class View implements iTemplate
      */
     public function __construct(string $directory)
     {
-        $this->directory = $directory;
+        $this->rootDirectory = $directory;
     }
 
-    public function render(string $templateName, array $templateVariables) : string {
-        $file = $this->directory . $templateName;
+    public function render(string $templateName, array $templateVariables = []) : string
+    {
+        $file = $this->rootDirectory . "/Templates/$templateName.tmpl";
         if (!file_exists($file)) {
             return "Error loading template file ($file).";
         }
         $output = file_get_contents($file);
 
-        foreach ($templateVariables as $key => $value) {
-            $tagToReplace = "{{ $key }}";
-            $output = str_replace($tagToReplace, $value, $output);
+        if (!empty($templateVariables)) {
+            foreach ($templateVariables as $key => $value) {
+                $tagToReplace = "{{ $key }}";
+                $output = str_replace($tagToReplace, $value, $output);
+            }
         }
 
         return $output;
